@@ -57,7 +57,7 @@ namespace Report.WorkerService
 
             MultipartFormDataContent multipartFormDataContent = new();
             multipartFormDataContent.Add(new ByteArrayContent(ms.ToArray()), "file", Guid.NewGuid().ToString() + ".xlsx");
-            var baseUrl = "https://localhost:44345/api/files";
+            var baseUrl = "https://localhost:5020/api/files";
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.PostAsync($"{baseUrl}?UUID={createExcelMessage.UUID}", multipartFormDataContent);
@@ -70,7 +70,7 @@ namespace Report.WorkerService
         {
             using var httpClient = new HttpClient();
             
-            var baseUrl = "https://localhost:44349/api/ContactInformation";
+            var baseUrl = "https://localhost:5010/api/ContactInformation";
             var result = httpClient.GetAsync($"{baseUrl}/LocationReport").Result;
             var data = result.Content.ReadAsStringAsync().Result;
             var root = JsonConvert.DeserializeObject<List<ReportDetail>>(data);
