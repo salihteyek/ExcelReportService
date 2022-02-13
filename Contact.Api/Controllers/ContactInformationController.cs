@@ -45,5 +45,14 @@ namespace Contact.Api.Controllers
             await _service.RemoveAsync(person);
             return NoContent();
         }
+        
+        #region Reports
+        [HttpGet("LocationReport")]
+        public async Task<IActionResult> PersonsLocationReport()
+        {
+            var report = await _service.PersonsLocationReportAsync();
+            return Ok(report);
+        }
+        #endregion
     }
 }
