@@ -6,6 +6,7 @@ RabbitMQ ve PostgreSQL'i docker desktop üzerine kurulum gerçekleştirdim.
 
  - RabbitMQ
  - PostgreSQL
+ - .Net 5
 
 
 
